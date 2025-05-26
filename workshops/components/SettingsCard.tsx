@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity, Switch } from "react-native";
-import { Feather, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
+import { Feather, MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
 import { useState } from "react";
 import { useRouter } from "expo-router";
 
@@ -26,7 +26,7 @@ export default function SettingsCard() {
       <SettingRow
         icon={<MaterialIcons name="lock-outline" size={20} color="#555" />}
         label="Privacy"
-        onPress={() => {}}
+        onPress={() => router.navigate("/settings/privacy")}
       />
       <SettingRow
         icon={<Feather name="bell" size={20} color="#555" />}
