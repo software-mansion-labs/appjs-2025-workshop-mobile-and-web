@@ -1,4 +1,5 @@
 import { Text, View, StyleSheet, Pressable } from "react-native";
+import { showAlert } from "@/libs/alerts";
 
 // basic styling for dialog
 import "@/web-dialog.css";
@@ -10,7 +11,19 @@ export default function AlertsPage() {
         <Text style={styles.heading}>Section 2. Alerts</Text>
       </View>
       <View style={styles.content}>
-        <Pressable style={styles.button} onPress={() => {}}>
+        <Pressable
+          style={styles.button}
+          onPress={() => {
+            showAlert({
+              title: "Hello",
+              message: "Write something here",
+              confirmText: "Ok",
+              cancelText: "Cancel",
+              onConfirm: () => console.log("confirmed"),
+              onCancel: () => console.log("cancelled"),
+            });
+          }}
+        >
           <Text style={styles.text}>Open alert</Text>
         </Pressable>
       </View>
