@@ -1,0 +1,23 @@
+/* dialog basic styling */
+dialog {
+    padding: 12px !important;
+    border-radius: 4px;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0.75;
+}
+
+dialog h1, dialog h2 {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+dialog button, dialog a {
+    padding: 4px 12px;
+    border: solid 1px #000;
+    border-radius: 4px;
+}

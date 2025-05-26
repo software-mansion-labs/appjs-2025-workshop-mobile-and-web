@@ -1,0 +1,56 @@
+{
+  "expo": {
+    "name": "mobile-and-web-with-react-native",
+    "slug": "mobile-and-web-with-react-native",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "mobileandwebwithreactnative",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mobileandwebwithreactnative",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ff5b0a"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.mobileandwebwithreactnative"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ff5b0a"
+        }
+      ],
+      "expo-font",
+      "expo-web-browser"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "buildCacheProvider": {
+        "plugin": "./build-cache-provider"
+      }
+    },
+    "extra": {
+      "router": {},
+      "eas": {}
+    }
+  }
+}
