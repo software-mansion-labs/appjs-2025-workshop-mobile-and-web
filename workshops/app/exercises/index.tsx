@@ -1,4 +1,4 @@
-import { Link } from "expo-router";
+import { Link, Route } from "expo-router";
 import { View, StyleSheet } from "react-native";
 
 export default function Exercises() {
@@ -9,6 +9,9 @@ export default function Exercises() {
       </Link>
       <Link href="/exercises/styling" style={styles.link}>
         Section 3. Styling
+      </Link>
+      <Link href={"/settings/privacy" as Route} style={styles.link}>
+        Section 4. DOM Components
       </Link>
     </View>
   );
