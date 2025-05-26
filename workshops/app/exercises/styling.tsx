@@ -12,11 +12,21 @@ import { ThemeKey, themes } from "@/libs/styles/theme";
 import RNStylesheetStreakFlameWidget from "@/components/styling/StreakFlameWidget";
 import RNStylesheetActivitySelector from "@/components/styling/ActivitySelector";
 import RNStylesheetJoinChallengeButton from "@/components/styling/JoinChallengeButton";
-import RNStylesheetRunnerLoading from "@/components/styling/RunnerLoading";
 import { TamaguiProvider, Theme } from "tamagui";
 import config from "@/tamagui.config";
 import nativewindThemes from "@/libs/styles/nativewind";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import StreakFlameWidget1 from "@/solutions/3.1/components/styling/StreakFlameWidget";
+import ActivitySelector1 from "@/solutions/3.1/components/styling/ActivitySelector";
+import JoinChallengeButton1 from "@/solutions/3.1/components/styling/JoinChallengeButton";
+import StreakFlameWidget2 from "@/solutions/3.2/components/styling/StreakFlameWidget";
+import ActivitySelector2 from "@/solutions/3.2/components/styling/ActivitySelector";
+import JoinChallengeButton2 from "@/solutions/3.2/components/styling/JoinChallengeButton";
+import StreakFlameWidget3 from "@/solutions/3.3/components/styling/StreakFlameWidget";
+import ActivitySelector3 from "@/solutions/3.3/components/styling/ActivitySelector";
+import JoinChallengeButton3 from "@/solutions/3.3/components/styling/JoinChallengeButton";
+import { SignInForm } from "@/solutions/3.4/components/styling/SignInForm";
+import RunnerLoading4 from "@/solutions/3.5/components/styling/RunnerLoading";
 
 export default function StylePlaygroundGrid() {
   const [theme, setTheme] = useState<ThemeKey>("light");
@@ -60,12 +70,16 @@ export default function StylePlaygroundGrid() {
         {/* styled-components setup */}
         <ThemeProvider theme={themes[theme]}>
           <GridCell label="3.1. Styled Components" theme={theme}>
-            {/* Component goes here */}
+            <StreakFlameWidget1 streakCount={10} />
+            <ActivitySelector1 />
+            <JoinChallengeButton1 onPress={() => {}} label="Join Challenge" />
           </GridCell>
         </ThemeProvider>
 
         <GridCell label="3.2. React Native Unistyles" theme={theme}>
-          {/* Component goes here */}
+          <StreakFlameWidget2 streakCount={10} />
+          <ActivitySelector2 />
+          <JoinChallengeButton2 onPress={() => {}} label="Join Challenge" />
         </GridCell>
 
         <GridCell
@@ -74,7 +88,9 @@ export default function StylePlaygroundGrid() {
           // nativewind setup
           style={nativewindThemes[theme]}
         >
-          {/* Component goes here */}
+          <StreakFlameWidget3 streakCount={10} />
+          <ActivitySelector3 />
+          <JoinChallengeButton3 onPress={() => {}} label="Join Challenge" />
         </GridCell>
 
         <GridCell label="Theming" theme={theme}>
@@ -100,13 +116,13 @@ export default function StylePlaygroundGrid() {
         <TamaguiProvider config={config}>
           <Theme name={theme}>
             <GridCell label="3.4. Tamagui" theme={theme}>
-              {/* Component goes here */}
+              <SignInForm />
             </GridCell>
           </Theme>
         </TamaguiProvider>
 
         <GridCell label="3.5. Reanimated CSS Animations" theme={theme}>
-          <RNStylesheetRunnerLoading theme={theme} />
+          <RunnerLoading4 theme={theme} />
         </GridCell>
       </ScrollView>
     </GestureHandlerRootView>
