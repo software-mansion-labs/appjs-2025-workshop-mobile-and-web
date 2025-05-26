@@ -1,8 +1,7 @@
-import { View, StyleSheet } from "react-native";
-import { Route } from "expo-router";
+import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { Route, useRouter } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import React from "react";
 
 export const SIDEBAR_WIDTH = 72;
 
@@ -21,26 +20,46 @@ const sideBarRoutes: SideBarRoute[] = [
   {
     title: "Settings",
     icon: "cog",
-    url: "/settings" as Route,
+    url: "/settings",
   },
   {
     title: "You",
     icon: "user",
-    url: "/you" as Route,
+    url: "/you",
   },
   {
     title: "Exercises",
     icon: "book",
-    url: "/exercises" as Route,
+    url: "/exercises",
   },
 ];
 
-export default function SideBar(_props: BottomTabBarProps) {
+export default function SideBar({ state }: BottomTabBarProps) {
+  const router = useRouter();
+
   return (
     <View style={styles.sidebar}>
-      {sideBarRoutes.map((route) => (
-        <React.Fragment key={route.title} />
-      ))}
+      {sideBarRoutes.map((route, index) => {
+        const isFocused = state.index === index;
+
+        return (
+          <TouchableOpacity
+            key={route.title}
+            onPress={() => router.navigate(route.url)}
+            style={[styles.tabItem, isFocused && styles.activeTab]}
+          >
+            <FontAwesome
+              name={route.icon}
+              size={24}
+              color={isFocused ? "#FF5500" : "#666"}
+              style={{ marginBottom: 4 }}
+            />
+            <Text style={[styles.label, isFocused && styles.activeLabel]}>
+              {route.title}
+            </Text>
+          </TouchableOpacity>
+        );
+      })}
     </View>
   );
 }
@@ -48,5 +67,31 @@ export default function SideBar(_props: BottomTabBarProps) {
 const styles = StyleSheet.create({
   sidebar: {
     width: SIDEBAR_WIDTH,
+    height: "100%",
+    backgroundColor: "#fff",
+    borderRightWidth: 1,
+    borderColor: "#eee",
+    paddingTop: 40,
+    alignItems: "center",
+    position: "absolute",
+  },
+  tabItem: {
+    width: "100%",
+    height: SIDEBAR_WIDTH,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  activeTab: {
+    backgroundColor: "#fef4ee",
+    borderLeftWidth: 4,
+    borderLeftColor: "#FF5500",
+  },
+  label: {
+    fontSize: 12,
+    color: "#666",
+  },
+  activeLabel: {
+    color: "#FF5500",
+    fontWeight: "600",
   },
 });
