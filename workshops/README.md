@@ -16,7 +16,24 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    yarn web
    ```
 
-FIXME: add instructions how to run: android, ios
+3. build & run android app
+   ```bash
+     yarn android
+   ```
+
+4. build & run ios app
+   ```bash
+     yarn ios
+   ```
+
+<details>
+<summary>Side note: How are building?</summary>
+
+We are using new experimental feature of expo called: [build cache providers](https://docs.expo.dev/guides/cache-builds-remotely/)
+
+We have built these apps before workshops, and are now serving them from a local server.
+
+</details>
 
 ## Section 1: Navigation basics
 
@@ -86,12 +103,12 @@ Mobile apps usually have a tab navigator at the bottom of the screen. Let's see 
 
 Lastly we'll tackle a common issue: mobile screens don’t always translate well to web routes and layouts. More specifically, when using web browsers, we must account for a wide range of screen sizes - including wide desktop screens. Because of that there will be extra space on web that we should somehow utilize.
 
-![](/workshop-assets/1.3-split-view.png)
+![](/workshops/workshop-assets/1.3-split-view.png)
 
 One thing we can do is make our `ActivityList` display as a side panel on the `/activity/[activityId]` Screen.  
 Like so:
 
-<img src="/workshop-assets/1.3-split-desktop.png" alt="desktop split view" width="500"/>
+<img src="/workshops/workshop-assets/1.3-split-desktop.png" alt="desktop split view" width="500"/>
 
 **TODOs**
 
@@ -99,13 +116,13 @@ Like so:
    - Create a new component `<WithSidePanel>` that will encapsulate the logic of displaying split view
    - It should accept React `children` as a prop and then either render them unchanged or wrap them with side panel 
    - You can use `useWindowDimensions` hook from `react-native` to check for the width of the screen
-   - you can (optionally) also use the check `Platform.OS === "web"` to run code only for web
+   - You can (optionally) also use the check `Platform.OS === "web"` to run code only for web
    - On screens lower than 800px users should get the unchanged activity view, but when they're on wider screens - they should see a split view: activity view as main content and list of activities on the left
-   - use `<WithSidePanel>` inside `[activityId].tsx`
+   - Use `<WithSidePanel>` inside `[activityId].tsx`
 1. Modify `(home)/index.tsx` - there is no need for this view on web, since we always show `ActivityList` as a side panel:
-   - whenever a user enters `/` on web, we will redirect them to `/activity/[activityId]`
-   - use the same check that was used in previous point - `useWindowDimensions()` and/or `Platform.OS` to perform the redirect
-   - the redirect can be done via `<Redirect />` component, or imperatively via `useRouter()`. We will have to get all activities data to grab a correct id of one of them (for example 1st one) and use it to create the redirect route
+   - Whenever a user enters `/` on web, we will redirect them to `/activity/[activityId]`
+   - Use the same check that was used in previous point - `useWindowDimensions()` and/or `Platform.OS` to perform the redirect
+   - The redirect can be done via `<Redirect />` component, or imperatively via `useRouter()`. We will have to get all activities data to grab a correct id of one of them (for example 1st one) and use it to create the redirect route
 
 _Note:_ the proposed solution is just one of many, and other apps might want different approaches.
 
@@ -115,7 +132,7 @@ In this section we will use platform specific file extensions to implement a ver
 
 As an example we will be using a simple alert that will display some information to the user.
 
-<img src="/workshop-assets/2.1-alert.png" alt="desktop split view" width="400"/>
+<img src="/workshops/workshop-assets/2.1-alert.png" alt="desktop split view" width="400"/>
 
 **TODOs**
 1. Inside `libs/alerts/types.ts` you can find a super simple type for Alert - use it when implementing this exercise.
@@ -138,8 +155,8 @@ As an example we will be using a simple alert that will display some information
 **Web styling**
 1. Basic web dialog will have almost no styling. Some basic styling was provided inside file `/web-dialog.css`
 1. Now modify the barebones styling and improve the dialog on web. You have 2 possible approaches:
-   - you can modify existing `.css` file and improve the styles there
-   - alternatively you can apply styling directly to elements, when creating them via DOM api
+   - You can modify existing `.css` file and improve the styles there
+   - Alternatively you can apply styling directly to elements, when creating them via DOM api
 1. The actual method of styling in a real world app would probably be based on what kind of styling and builder you are using. 
 
 <details>
@@ -314,5 +331,5 @@ You can find the api docs for styling here: https://facebook.github.io/react-str
 
 You can use the screenshot below as inspiration:
 
-<img src="/workshop-assets/5.1-strict-dom-landing-page.png" alt="desktop split view" width="700"/>
+<img src="/workshops/workshop-assets/5.1-strict-dom-landing-page.png" alt="desktop split view" width="700"/>
 
