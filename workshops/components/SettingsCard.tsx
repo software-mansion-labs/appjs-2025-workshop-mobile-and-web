@@ -1,8 +1,10 @@
 import { View, Text, StyleSheet, TouchableOpacity, Switch } from "react-native";
 import { Feather, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import { useState } from "react";
+import { useRouter } from "expo-router";
 
 export default function SettingsCard() {
+  const router = useRouter();
   const [metricUnits, setMetricUnits] = useState(true);
 
   return (
@@ -12,7 +14,7 @@ export default function SettingsCard() {
       <SettingRow
         icon={<Feather name="user" size={20} color="#555" />}
         label="Edit Profile"
-        onPress={() => {}}
+        onPress={() => router.navigate("/settings/account")}
       />
       <SettingRow
         icon={<FontAwesome5 name="ruler" size={18} color="#555" />}
@@ -29,7 +31,7 @@ export default function SettingsCard() {
       <SettingRow
         icon={<Feather name="bell" size={20} color="#555" />}
         label="Notifications"
-        onPress={() => {}}
+        onPress={() => router.navigate("/settings/notifications")}
       />
 
       <TouchableOpacity style={styles.logoutButton}>
