@@ -43,10 +43,7 @@
       "expo-web-browser"
     ],
     "experiments": {
-      "typedRoutes": true,
-      "buildCacheProvider": {
-        "plugin": "./build-cache-provider"
-      }
+      "typedRoutes": true
     },
     "extra": {
       "router": {},
