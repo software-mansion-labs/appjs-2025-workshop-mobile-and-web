@@ -10,28 +10,27 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    yarn install
    ```
 
-2. Start the app
+2. Start the web app
 
    ```bash
    yarn web
    ```
+   
+3. Download the native builds from:
+   - android: http://appjs.local/mobile-web-workshops/build.apk
+   - ios: http://appjs.local/mobile-web-workshops/build.tar.gz
 
-3. build & run android app
+3. Alternatively you can build them yourself using these commands:
    ```bash
      yarn android
    ```
-
-4. build & run ios app
    ```bash
      yarn ios
    ```
 
 <details>
-<summary>Side note: How are building?</summary>
-
-We are using new experimental feature of expo called: [build cache providers](https://docs.expo.dev/guides/cache-builds-remotely/)
-
-We have built these apps before workshops, and are now serving them from a local server.
+<summary>Side note: backup-backup</summary>
+If anything fails with local network, use this directory on gDrive: https://drive.google.com/drive/folders/100pbifPwiKs6j261gEtWF2277p2-WcuQ
 
 </details>
 
@@ -70,6 +69,11 @@ Now we need to add some basic navigation to be able to look at the activity and 
 1. On web, it is very easy to modify the current URL via the browser bar. What happens when someone tries to access a non-existing activity id?  
    We should ensure that if activity id is missing or incorrect, the app will still work and display a useful message to the user. You can use existing `NotFoundMessage` component to achieve that.  
    **Note** that non-existing item data is different from non-existing route.
+1. To test this on mobile simulator or emulator you can use these commands:
+   ```bash
+   npx uri-scheme open mobileandwebwithreactnative://activity/act111 --ios
+   npx uri-scheme open mobileandwebwithreactnative://activity/act111 --android
+   ```
 
 <details>
 <summary>Hint</summary>
