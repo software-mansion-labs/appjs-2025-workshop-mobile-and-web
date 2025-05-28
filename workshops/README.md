@@ -337,3 +337,6 @@ You can use the screenshot below as inspiration:
 
 <img src="/workshops/workshop-assets/5.1-strict-dom-landing-page.png" alt="desktop split view" width="700"/>
 
+## Link to the presentation  
+
+You can find the presentation [here](https://docs.google.com/presentation/d/1dhCFIGbaJG59tFVdO7N6Ocp6GjDMkvIipm-djhtxc7s/edit?usp=sharing)
